@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "deploy": "netlify deploy --prod --dir web-build",
+    "predeploy": "expo build:web"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -14,7 +16,18 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "expo-web-browser": "~8.5.0",
+    "styled-components": "^5.0.1",
+    "gh-pages": "^2.2.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/bottom-tabs": "^5.2.1",
+    "@react-navigation/native": "^5.1.0",
+    "@react-navigation/stack": "^5.2.1",
+    "react-native-gesture-handler": "~1.7.0",
+    "react-native-reanimated": "~1.13.0",
+    "react-native-screens": "2.10.1",
+    "react-native-web-swiper": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
