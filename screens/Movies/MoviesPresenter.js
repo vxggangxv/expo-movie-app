@@ -144,9 +144,9 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
   return (
     <ScrollContainer refreshFn={refreshFn} loading={loading}>
       <>
-        <Link to="/detail/531219">
+        {/* <Link to="/detail/531219">
           <Text>Go to 531219</Text>
-        </Link>
+        </Link> */}
         <PlayingSliderContainer>
           {/* <Fragment key={nowPlaying[2].id}>
             <SlideBg source={{ uri: apiImage(nowPlaying[2].backdrop_path) }} />

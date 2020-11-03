@@ -1,16 +1,13 @@
 import React, { useLayoutEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Movies from '../screens/Movies';
 import Tv from '../screens/Tv';
 import Search from '../screens/Search';
 import Favs from '../screens/Favs';
 import { Platform } from 'react-native';
-import TabBar from './TabBar';
 
 const Tabs = createBottomTabNavigator();
-// const Tabs = createMaterialTopTabNavigator();
 
 const getHeaderName = route => route?.state?.routeNames[route.state.index] || 'Movies';
 
@@ -50,8 +47,6 @@ export default ({ navigation, route }) => {
           borderTopColor: 'black',
         },
       }}
-      tabBarPosition={'bottom'}
-      // tabBar={props => <TabBar {...props} />}
     >
       <Tabs.Screen name="Movies" component={Movies} />
       <Tabs.Screen name="TV" component={Tv} />
