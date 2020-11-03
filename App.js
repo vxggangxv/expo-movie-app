@@ -6,6 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import Stack from './navigation/Stack';
+// import * as Linking from 'expo-linking';
+
+// const prefix = Linking.makeUrl('/');
 
 // import useAsync from './hooks/useAsync';
 // import useDidUpdate from './hooks/useDidUpdate';
@@ -23,6 +26,19 @@ const cacheImages = images =>
 
 const cacheFonts = fonts => fonts.map(font => Font.loadAsync(font));
 
+const linking = {
+  prefixes: [
+    // 'http://localhost:19006/', 'localhost:19006//'
+  ],
+  config: {
+    /* configuration for matching screens with paths */
+    screens: {
+      Tab: '',
+      Detail: 'detail/:id',
+    },
+  },
+};
+
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const loadAssets = () => {
@@ -38,7 +54,8 @@ export default function App() {
     return <AppLoading startAsync={loadAssets} onFinish={handleFinish} onError={console.error} />;
   return (
     <>
-      <NavigationContainer>
+      {/* <NavigationContainer> */}
+      <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
         <Stack />
       </NavigationContainer>
       <StatusBar barStyle="light-content" />

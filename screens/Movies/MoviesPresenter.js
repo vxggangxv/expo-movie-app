@@ -13,7 +13,7 @@ import ScrollContainer from '../../components/ScrollContainer';
 import { apiImage } from '../../api';
 import { formatDate, trimText } from '../../libs/utils';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { Link, useNavigation } from '@react-navigation/native';
 import Poster from '../../components/Poster';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import Votes from '../../components/Votes';
@@ -144,6 +144,9 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
   return (
     <ScrollContainer refreshFn={refreshFn} loading={loading}>
       <>
+        <Link to="/detail/531219">
+          <Text>Go to 531219</Text>
+        </Link>
         <PlayingSliderContainer>
           {/* <Fragment key={nowPlaying[2].id}>
             <SlideBg source={{ uri: apiImage(nowPlaying[2].backdrop_path) }} />
@@ -183,11 +186,13 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
                       <PlayingTitle>{trimText(movie.original_title, 40)}</PlayingTitle>
                       <PlayingOverview>{trimText(movie.overview, 80)}</PlayingOverview>
                       {movie.vote_average > 0 && <Votes votes={movie.vote_average} />}
-                      <TouchableOpacity onPress={() => goToDetail(formData)}>
+                      <Link to={`/detail/${movie.id}`}>
+                        {/* <TouchableOpacity onPress={() => goToDetail(formData)}> */}
                         <PlayingViewButton>
                           <PlayingViewButtonText>View details</PlayingViewButtonText>
                         </PlayingViewButton>
-                      </TouchableOpacity>
+                        {/* </TouchableOpacity> */}
+                      </Link>
                     </PlayingInfomationContainer>
                   </PlayingSlide>
                 </Fragment>
@@ -208,13 +213,15 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
               };
               return (
                 <Fragment key={movie.id}>
-                  <TouchableOpacity onPress={() => goToDetail(formData)}>
+                  <Link to={`/detail/${movie.id}`}>
+                    {/* <TouchableOpacity onPress={() => goToDetail(formData)}> */}
                     <PopularContainer>
                       <Poster url={movie.poster_path} />
                       <PopularTitle>{trimText(movie.title, 10)}</PopularTitle>
                       {movie.vote_average > 0 && <Votes votes={movie.vote_average} />}
                     </PopularContainer>
-                  </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
+                  </Link>
                 </Fragment>
               );
             })}
@@ -232,7 +239,8 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
               };
               return (
                 <Fragment key={movie.id}>
-                  <TouchableOpacity onPress={() => goToDetail(formData)}>
+                  <Link to={`/detail/${movie.id}`}>
+                    {/* <TouchableOpacity onPress={() => goToDetail(formData)}> */}
                     <UpcomingContainer>
                       <Poster url={movie.poster_path} />
                       <UpcomingData>
@@ -245,7 +253,8 @@ function MoviesPresenter({ refreshFn, loading, nowPlaying, popular, upcoming }) 
                         <UpcomingOverview>{trimText(movie.overview, 80)}</UpcomingOverview>
                       </UpcomingData>
                     </UpcomingContainer>
-                  </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
+                  </Link>
                 </Fragment>
               );
             })}

@@ -33,6 +33,11 @@ function MoviesContainer(props) {
     getData();
   }, []);
 
+  // 531219
+  // useEffect(() => {
+  //   console.log(movies, 'movies');
+  // }, [movies.loading]);
+
   if (movies.loading) return null;
   return <MoviesPresenter refreshFn={getData} {...movies} />;
 }
